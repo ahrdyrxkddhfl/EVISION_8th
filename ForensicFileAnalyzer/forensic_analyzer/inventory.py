@@ -5,7 +5,8 @@ import os
 from pathlib import Path
 from typing import Dict, Iterable, Iterator, List, Optional, Tuple, Union
 
-# --------- 공개 API ---------
+# api 작성
+
 def collect_inventory(
     root: Union[str, Path],
     *,
@@ -67,7 +68,8 @@ def write_inventory_csv(
         writer.writerows(rows)
 
 
-# --------- 내부 유틸 ---------
+# 내부 함수 목록
+
 def _iter_files(
     root: Path,
     *,

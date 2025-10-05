@@ -39,29 +39,32 @@
 
 ## 3. 결과
 
-### ① 시뮬레이션
+### ① 실행
+#### 더미 데이터 생성
+dummy_test.py 실행 > ForensicTestData 폴더 생성 후, 안에 더미 테스트 파일들 같이 생성된 것 확인
+- ![alt text](image-2.png)
+#### .csv 형태로 저장
+
+- 터미널 명령어
+![alt text](image.png)
+- outputs 결과
+![alt text](image-1.png)
+.CSV 형태로 잘 생성되었다
+
+### ② 한계
 
 1. 지워진 파일 복구 미지원
 2. PDF, word 문서 등 검색 기능 미지원
-3. 시간 정보는 공격자에 의해 조작될 수 있음
+3. 공격자에 의한 시간 정보 조작 가능성
 
-### ② 한계 및 향후 보완점
+### ③ 향후 보완점
 
 1. 이미지 파일, 문서 파일, 압축 파일 등 상세 분석 추가
 2. 디스크 전체 복제본(이미지 파일) 분석도 지원
 3. 검색 속도 향상을 위해 인덱스 추가
 
----
-
----
-
-### 레퍼런스
-
-- Python 파일 분석: https://github.com/DidierStevens/DidierStevensSuite
-- 파일 해시 계산: https://github.com/psf/requests/blob/main/requests/models.py (해시활용부분)
-- 파일 시그니처 체크: https://github.com/ahupp/python-magic
 
 ### 관련 학습 내용 정리
 
 - https://velog.io/@ahrdyrxkddhfl/파일-시스템
--
+- 
