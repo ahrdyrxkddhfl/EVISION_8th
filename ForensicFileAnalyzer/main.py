@@ -25,10 +25,7 @@ def _ensure_parent(path: Union[str, Path]) -> Path:
     return p
 
 def _write_csv_dynamic(rows: List[Dict[str, object]], out_path: Union[str, Path]) -> None:
-    """
-    rows의 모든 키를 합쳐 동적 헤더를 만들고 CSV로 저장한다.
-    UTF-8 with BOM(엑셀 호환).
-    """
+
     if not rows:
         print(f"[WARN] No rows to write to {out_path}")
         return
@@ -154,7 +151,7 @@ def cmd_validate(args: argparse.Namespace) -> None:
         rows = add_signature_to_rows(rows, prefer_magic=not args.sig_no_magic)
 
     issues = []
-    issues += validate_inventory_rows(rows) # 단순화를 위해 기본 옵션 사용
+    issues += validate_inventory_rows(rows) 
 
     if getattr(args, 'verify_hash', False):
         issues += sample_verify_hashes(
@@ -180,7 +177,6 @@ def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(prog="ForensicFileAnalyzer", description="ForensicFileAnalyzer CLI")
     sub = p.add_subparsers(dest="command", required=True, help="Available commands")
 
-    # 모든 명령어에서 공통으로 사용할 옵션들을 정의하는 함수
     def add_common_opts(sp: argparse.ArgumentParser):
         sp.add_argument("root", help="스캔할 루트 폴더 경로")
         sp.add_argument("--out-dir", default="outputs", help="결과 CSV 저장 폴더")
@@ -193,13 +189,13 @@ def build_parser() -> argparse.ArgumentParser:
         sp.add_argument("--with-signature", action="store_true", help="파일 시그니처 판정 열 추가")
         sp.add_argument("--sig-no-magic", action="store_true", help="libmagic 미사용")
 
-    # inventory 명령어
+    # inventory 
     inv = sub.add_parser("inventory", help="파일 인벤토리 & 메타데이터 추출")
     add_common_opts(inv)
     inv.add_argument("--out", default="", help="결과 CSV 파일 경로 지정")
     inv.set_defaults(func=cmd_inventory)
 
-    # search 명령어
+    # search 
     sea = sub.add_parser("search", help="텍스트 파일 키워드 검색")
     add_common_opts(sea)
     sea.add_argument("--out-hits", default="", help="검색 결과 CSV 파일 경로")
@@ -209,7 +205,7 @@ def build_parser() -> argparse.ArgumentParser:
     sea.add_argument("--include-exts", nargs="*", default=["txt", "log", "csv", "json", "xml", "md"])
     sea.set_defaults(func=cmd_search)
 
-    # timeline 명령어
+    # timeline 
     tli = sub.add_parser("timeline", help="파일 시간 정보로 타임라인 생성")
     add_common_opts(tli)
     tli.add_argument("--out-timeline", default="", help="타임라인 CSV 파일 경로")
@@ -217,7 +213,7 @@ def build_parser() -> argparse.ArgumentParser:
     tli.add_argument("--out-inventory", help="타임라인 생성에 사용된 원본 인벤토리도 저장")
     tli.set_defaults(func=cmd_timeline)
     
-    # validate 명령어
+    # validate 
     val = sub.add_parser("validate", help="데이터 무결성 검증")
     add_common_opts(val)
     val.add_argument("--out-issues", default="", help="검증 이슈 CSV 파일 경로")
@@ -229,7 +225,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def main():
-    """메인 실행 함수"""
+
     parser = build_parser()
     args = parser.parse_args()
     if hasattr(args, 'func'):
