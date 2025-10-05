@@ -55,6 +55,10 @@ dummy_test.py 실행 > ForensicTestData 폴더 생성 후, 안에 더미 테스�
 
 .CSV 형태로 잘 생성되었다. 여러번 실행해도 타임스탬프가 찍혀 나오기 때문에 헷갈릴 일은 없다.
 
+실행하면 아래와 같이 내용을 확인할 수 있다
+<img width="663" height="105" alt="image" src="https://github.com/user-attachments/assets/be50a223-a6c5-4e71-a43f-7a7c1a7dbb95" />
+
+
 ### ② 한계
 
 1. 지워진 파일 복구 미지원
