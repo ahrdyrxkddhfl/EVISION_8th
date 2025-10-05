@@ -20,7 +20,3 @@ outputs/*.csv
 .idea/
 *.swp
 *.swo
-
-image-1.png
-image-2.png
-image.png
