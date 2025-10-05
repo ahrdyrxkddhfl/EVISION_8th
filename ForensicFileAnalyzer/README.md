@@ -42,14 +42,22 @@
 ### ① 실행
 #### 더미 데이터 생성
 dummy_test.py 실행 > ForensicTestData 폴더 생성 후, 안에 더미 테스트 파일들 같이 생성된 것 확인
-- ![alt text](image-2.png)
+- <img width="224" height="203" alt="image" src="https://github.com/user-attachments/assets/a8417227-27cd-4a18-a0b4-d41337fa18ee" />
+
 #### .csv 형태로 저장
 
 - 터미널 명령어
-![alt text](image.png)
+<img width="586" height="143" alt="image" src="https://github.com/user-attachments/assets/4e06e6a6-fd38-4a5d-9c44-05276fe46e39" />
+
 - outputs 결과
-![alt text](image-1.png)
-.CSV 형태로 잘 생성되었다
+<img width="242" height="397" alt="image" src="https://github.com/user-attachments/assets/af66cfb4-6b06-442c-81da-5616e13021e0" />
+
+
+.CSV 형태로 잘 생성되었다. 여러번 실행해도 타임스탬프가 찍혀 나오기 때문에 헷갈릴 일은 없다.
+
+실행하면 아래와 같이 내용을 확인할 수 있다
+<img width="663" height="105" alt="image" src="https://github.com/user-attachments/assets/be50a223-a6c5-4e71-a43f-7a7c1a7dbb95" />
+
 
 ### ② 한계
 
